@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>末梢采血器操作说明</title>
+    <title>Instructions for Capillary Blood Collection Device</title>
     <style>
         * {
             box-sizing: border-box;
@@ -14,7 +14,7 @@
             padding: 0;
         }
         body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             background: #f4f6fb;
         }
         div {
@@ -144,7 +144,7 @@
             border-radius: 8px;
             background: #000;
             display: block;
-            margin:16px auto;
+            margin: 16px auto;
             box-shadow: none;
             transition: transform 0.2s ease;
         }
@@ -172,15 +172,15 @@
             text-align: center;
         }
         .sub-step {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    border-bottom: 1px dashed #e0e6ef;
-    position: relative;
-    display: flex;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            border-bottom: 1px dashed #e0e6ef;
+            position: relative;
+            display: flex;
             flex-direction: column;
             align-items: stretch;
-}
+        }
         .sub-step::before {
             content: '';
             position: absolute;
@@ -252,137 +252,207 @@
 </head>
 <body>
     <div class="container">
-        <!-- 切换按钮 -->
+        <!-- GIF / Video toggle button -->
         <div style="text-align:right; margin-bottom: 16px;">
-            <button id="toggle-lang-btn" class="timer-btn big-toggle-btn" onclick="toggleLang()">English Version</button>
+            <button id="toggle-mode-btn" class="timer-btn big-toggle-btn" onclick="toggleMode()">Switch to Video</button>
             <style id="mode-style"></style>
         </div>
+
+        <!-- Precautions -->
         <div class="warning-section" id="warning-section">
-            <div class="warning-title">阅读注意事项</div>
+            <div class="warning-title">Precautions</div>
             <ul class="warning-list">
-                <li>12 周岁以下人群、凝血机制障碍人群或皮肤易过敏人群请勿使用本产品。</li>
-                <li>禁止海拔 2000 米以上地区使用此产品，否则可能导致危险。</li>
-                <li>皮肤松弛，缺血症，血液外循环障碍人群请谨慎使用该产品。</li>
-                <li>使用本产品前，应对皮肤表面进行清洁，并确保皮肤表面干燥，否则血液样品可能会受到影响。</li>
-                <li>若采血位置持续出血，应使用适当方法进行止血，并尽快就医。</li>
+                <li>Do not use this product for people under 12 years old, people with coagulation disorders, or people with skin allergies.</li>
+                <li>Do not use this product at altitudes above 2000 meters, as it may cause danger.</li>
+                <li>Use with caution for people with loose skin, ischemia, or blood circulation disorders.</li>
+                <li>Clean and dry the skin surface before use, otherwise the blood sample may be affected.</li>
+                <li>If bleeding continues at the collection site, use appropriate methods to stop the bleeding and seek medical attention promptly.</li>
             </ul>
-            <button class="confirm-btn" onclick="document.getElementById('warning-section').style.display='none'">已阅读</button>
+            <button class="confirm-btn" onclick="document.getElementById('warning-section').style.display='none'">Read and understood</button>
         </div>
-        <h1>末梢采血器操作说明</h1>
-        <!-- 步骤1：2个GIF和说明 -->
+
+        <h1>Instructions for Capillary Blood Collection Device</h1>
+
+        <!-- Step 1 -->
         <div class="step-section">
-            <div class="step-title">步骤1：采集准备</div>
+            <div class="step-title">Step 1: Preparation</div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step1_1.webp" alt="步骤1-1演示" loading="lazy">
-                <div class="desc">打开包装，检查盒内物品
-                    提前撕开酒精棉和创口贴</div>
+                <img class="step-gif" src="src/step1_1.webp" alt="Step 1-1" loading="lazy">
+                <div class="desc">Open the packaging, check the contents of the box</div>
             </div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step1_2.gif" alt="步骤1-2演示" loading="lazy">
-                <div class="desc">清洗双手或佩戴一次性医用手套</div>
+                <img class="step-gif" src="src/step1_2.gif" alt="Step 1-2" loading="lazy">
+                <div class="desc">Before operation, please wash hands or wear gloves</div>
             </div>
         </div>
-        <!-- 步骤2：2个GIF和说明 -->
+
+        <!-- Step 2 -->
         <div class="step-section">
-            <div class="step-title">步骤2:热敷</div>
+            <div class="step-title">Step 2: Warm Up</div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step2_1.gif" alt="步骤2-1演示" loading="lazy">
-                <div class="desc">轻掰金属片，触发加热</div>
+                <img class="step-gif" src="src/step2_1.gif" alt="Step 2-1" loading="lazy">
+                <div class="desc">Activate warming pack</div>
             </div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step2_2.gif" alt="步骤2-2演示" loading="lazy">
-                <div class="desc">热敷5分钟至皮肤微微泛红,如热敷过程中感觉太烫，可暂停几秒再继续热敷</div>
+                <img class="step-gif" src="src/step2_2.gif" alt="Step 2-2" loading="lazy">
+                <div class="desc">Warm arm for 5 minutes, if the arm becomes uncomfortable, stop warming for a while and continue</div>
             </div>
         </div>
-        <!-- 热敷5分钟计时器 -->
+
+        <!-- 5-Minute Warming Timer -->
         <div class="timer-section">
-            <div class="timer-title">热敷5分钟计时器</div>
+            <div class="timer-title">5-Minute Warming Timer</div>
             <div class="timer-display" id="timer5-display">05:00</div>
-            <button class="timer-btn" onclick="startTimer('timer5', event)" id="timer5-start">开始</button>
-                <button class="timer-btn" onclick="pauseTimer('timer5', event)" id="timer5-pause" disabled>暂停</button>
-                <button class="timer-btn" onclick="resetTimer('timer5', event)" id="timer5-reset">重置</button>
-            <div class="timer-finished" id="timer5-finished" style="display:none;">时间到！</div>
+            <button class="timer-btn" onclick="startTimer('timer5', event)" id="timer5-start">Start</button>
+            <button class="timer-btn" onclick="pauseTimer('timer5', event)" id="timer5-pause" disabled>Pause</button>
+            <button class="timer-btn" onclick="resetTimer('timer5', event)">Reset</button>
+            <div class="timer-finished" id="timer5-finished" style="display:none;">Time's up!</div>
         </div>
-        <!-- 步骤3：单个GIF和说明 -->
+
+        <!-- Step 3 -->
         <div class="step-section">
-            <div class="step-title">步骤3：消毒</div>
+            <div class="step-title">Step 3: Disinfection</div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step3.gif" alt="步骤3演示" loading="lazy">
-                <div class="desc">酒精棉片轻轻擦拭清洁,等待酒精挥发完全</div>
+                <img class="step-gif" src="src/step3.gif" alt="Step 3" loading="lazy">
+                <div class="desc">Clean with alcohol wipe and allow to dry</div>
             </div>
         </div>
-        <!-- 步骤4：3个GIF和说明，90秒计时器插入第二小步后 -->
+
+        <!-- Step 4 -->
         <div class="step-section">
-            <div class="step-title">步骤4：开始采血</div>
+            <div class="step-title">Step 4: Blood Collection</div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step4_1.gif" alt="步骤4-1演示" loading="lazy">
-                <div class="desc">撕开顶部和底部胶贴</div>
+                <img class="step-gif" src="src/step4_1.gif" alt="Step 4-1" loading="lazy">
+                <div class="desc">Peel off the paper liners on the top and bottom, stick the device to upper arm</div>
             </div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step4_2.gif" alt="步骤4-2演示" loading="lazy">
-                <div class="desc">将其紧贴上臂，管槽位置朝下（紧贴后不会掉落，无需一直手扶）</div>
+                <img class="step-gif" src="src/step4_2.gif" alt="Step 4-2" loading="lazy">
+                <div class="desc">Stick to upper arm, please ensure the slot is positioned at the bottom</div>
             </div>
-            <!-- 采血90秒计时器 -->
             <div class="sub-step">
-                <img class="step-gif" src="src/step4_3.gif" alt="步骤4-3演示" loading="lazy">
-                <div class="desc">采血管垂直插入管槽，针刺破胶塞即表示采血开始，计时90秒</div>
+                <img class="step-gif" src="src/step4_3.gif" alt="Step 4-3" loading="lazy">
+                <div class="desc">Insert the blood collection container vertically into the slot. The needle puncturing the rubber stopper signals the start of blood collection. Set the timer for 90 seconds.</div>
             </div>
+            <!-- 90-Second Blood Collection Timer -->
             <div class="timer-section">
-                <div class="timer-title">采血90秒计时</div>
+                <div class="timer-title">90-Second Blood Collection Timer</div>
                 <div class="timer-display" id="timer1-display">01:30</div>
-                <button class="timer-btn" onclick="startTimer('timer1', event)" id="timer1-start">开始</button>
-                <button class="timer-btn" onclick="pauseTimer('timer1', event)" id="timer1-pause" disabled>暂停</button>
-                <button class="timer-btn" onclick="resetTimer('timer1', event)" id="timer1-reset">重置</button>
-                <div class="timer-finished" id="timer1-finished" style="display:none;">时间到！</div>
+                <button class="timer-btn" onclick="startTimer('timer1', event)" id="timer1-start">Start</button>
+                <button class="timer-btn" onclick="pauseTimer('timer1', event)" id="timer1-pause" disabled>Pause</button>
+                <button class="timer-btn" onclick="resetTimer('timer1', event)">Reset</button>
+                <div class="timer-finished" id="timer1-finished" style="display:none;">Time's up!</div>
             </div>
         </div>
-        <!-- 步骤5：2个GIF和说明 -->
+
+        <!-- Step 5 -->
         <div class="step-section">
-            <div class="step-title">步骤5：停止采血</div>
+            <div class="step-title">Step 5: Stop Collection</div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step5_1.gif" alt="步骤5-1演示" loading="lazy">
-                <div class="desc">水平抬起手臂观察血液采集量，
-                    90秒或血量到达刻度线后停止采血</div>
+                <img class="step-gif" src="src/step5_1.gif" alt="Step 5-1" loading="lazy">
+                <div class="desc">Remove device if blood fills to the line before time is up</div>
             </div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step5_2.gif" alt="步骤5-2演示" loading="lazy">
-                <div class="desc">取下采血器</div>
+                <img class="step-gif" src="src/step5_2.gif" alt="Step 5-2" loading="lazy">
+                <div class="desc">Remove device</div>
             </div>
         </div>
-        <!-- 步骤6：2个GIF和说明 -->
+
+        <!-- Step 6 -->
         <div class="step-section">
-            <div class="step-title">步骤6：取出采血管</div>
+            <div class="step-title">Step 6: Remove Tube</div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step6_1.gif" alt="步骤6-1演示" loading="lazy">
-                <div class="desc">垂直向下取出采血管</div>
+                <img class="step-gif" src="src/step6_1.gif" alt="Step 6-1" loading="lazy">
+                <div class="desc">Hold the container upright and remove container</div>
             </div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step6_2.gif" alt="步骤6-2演示" loading="lazy">
-                <div class="desc">胶塞朝下摇晃采血管，使血液与添加剂充分混合</div>
+                <img class="step-gif" src="src/step6_2.gif" alt="Step 6-2" loading="lazy">
+                <div class="desc">Immediately shake the blood sample with the tube rubber stopper facing downward</div>
             </div>
         </div>
-        <!-- 步骤7：3个GIF和说明 -->
+
+        <!-- Step 7 -->
         <div class="step-section">
-            <div class="step-title">步骤7：后处理</div>
+            <div class="step-title">Step 7: Post-processing</div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step7_1.gif" alt="步骤7-1演示" loading="lazy">
-                <div class="desc">纱布擦拭采血位置，贴上创口贴</div>
+                <img class="step-gif" src="src/step7_1.gif" alt="Step 7-1" loading="lazy">
+                <div class="desc">Clean with gauze. Apply a bandage</div>
             </div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step7_2.gif" alt="步骤7-2演示" loading="lazy">
-                <div class="desc">将所有耗材妥善装入医疗包装废物袋</div>
+                <img class="step-gif" src="src/step7_2.gif" alt="Step 7-2" loading="lazy">
+                <div class="desc">Follow local guidelines for discarding all materials</div>
             </div>
             <div class="sub-step">
-                <img class="step-gif" src="src/step7_3.gif" alt="步骤7-3演示" loading="lazy">
-                <div class="desc">将血样放入运输袋，转运或寄回至检测实验室</div>
+                <img class="step-gif" src="src/step7_3.gif" alt="Step 7-3" loading="lazy">
+                <div class="desc">Pack sample and ship to the lab</div>
             </div>
         </div>
     </div>
+
     <script>
-        // 1. 先定义计时器相关对象和函数，确保HTML按钮可用
+        // GIF / Video toggle logic
+        let isVideoMode = false;
+
+        function toggleMode() {
+            isVideoMode = !isVideoMode;
+            document.body.classList.toggle('video-mode', isVideoMode);
+            updateToggleButton(isVideoMode);
+            const allStepSections = document.querySelectorAll('.step-section');
+            allStepSections.forEach(section => {
+                section.querySelectorAll('.step-gif, .step-video').forEach(media => {
+                    let src = media.getAttribute('src');
+                    if (!src) return;
+                    let filename = src.split('/').pop();
+                    if (isVideoMode) {
+                        // Replace .gif images with .mp4 videos
+                        if (media.tagName === 'IMG' && /\.gif$/i.test(filename)) {
+                            let base = filename.replace(/\.gif$/i, '');
+                            const video = document.createElement('video');
+                            video.className = 'step-video';
+                            video.setAttribute('controls', '');
+                            video.setAttribute('preload', 'none');
+                            video.setAttribute('playsinline', '');
+                            video.setAttribute('webkit-playsinline', '');
+                            video.setAttribute('alt', media.getAttribute('alt') || '');
+                            video.setAttribute('src', 'src/' + base + '.mp4');
+                            video.setAttribute('loading', 'lazy');
+                            media.parentNode.replaceChild(video, media);
+                        }
+                    } else {
+                        // Replace .mp4 videos back with .gif images
+                        if (media.tagName === 'VIDEO') {
+                            let base = filename.replace(/\.mp4$/i, '');
+                            const img = document.createElement('img');
+                            img.className = 'step-gif';
+                            img.setAttribute('src', 'src/' + base + '.gif');
+                            img.setAttribute('alt', media.getAttribute('alt') || '');
+                            img.setAttribute('loading', 'lazy');
+                            media.parentNode.replaceChild(img, media);
+                        }
+                    }
+                });
+            });
+        }
+
+        function updateToggleButton(isVideoMode) {
+            const btn = document.getElementById('toggle-mode-btn');
+            btn.textContent = isVideoMode ? 'Switch to GIF' : 'Switch to Video';
+            btn.classList.toggle('active', isVideoMode);
+        }
+
+        // Initialise button state
+        updateToggleButton(false);
+
+        // Smooth scroll on step click
+        document.querySelectorAll('.step-section').forEach(section => {
+            section.addEventListener('click', () => {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Timer logic
         const timers = {
             timer5: {
-                duration: 5 * 60, // 5分钟
+                duration: 5 * 60,
                 remaining: 5 * 60,
                 interval: null,
                 running: false,
@@ -390,10 +460,9 @@
                 finishedId: 'timer5-finished',
                 startBtn: 'timer5-start',
                 pauseBtn: 'timer5-pause',
-                resetBtn: 'timer5-reset',
             },
             timer1: {
-                duration: 90, // 90秒
+                duration: 90,
                 remaining: 90,
                 interval: null,
                 running: false,
@@ -401,15 +470,16 @@
                 finishedId: 'timer1-finished',
                 startBtn: 'timer1-start',
                 pauseBtn: 'timer1-pause',
-                resetBtn: 'timer1-reset',
             }
         };
+
         function updateTimerDisplay(timerKey) {
             const timer = timers[timerKey];
             const min = String(Math.floor(timer.remaining / 60)).padStart(2, '0');
             const sec = String(timer.remaining % 60).padStart(2, '0');
             document.getElementById(timer.displayId).textContent = `${min}:${sec}`;
         }
+
         function startTimer(timerKey, event) {
             if (event) event.stopPropagation();
             const timer = timers[timerKey];
@@ -431,6 +501,7 @@
                 }
             }, 1000);
         }
+
         function pauseTimer(timerKey, event) {
             if (event) event.stopPropagation();
             const timer = timers[timerKey];
@@ -440,6 +511,7 @@
             document.getElementById(timer.startBtn).disabled = false;
             document.getElementById(timer.pauseBtn).disabled = true;
         }
+
         function resetTimer(timerKey, event) {
             if (event) event.stopPropagation();
             const timer = timers[timerKey];
@@ -451,207 +523,6 @@
             document.getElementById(timer.pauseBtn).disabled = true;
             document.getElementById(timer.finishedId).style.display = 'none';
         }
-        // 2. 语言切换逻辑
-        let isEnglish = false;
-        const langMap = {
-            '打开包装，检查盒内物品\n准备计时器\n提前撕开酒精棉和创口贴': 'Open the packaging，check the contents of the box',
-            '打开包装，检查盒内物品提前撕开酒精棉和创口贴': 'Open the packaging，check the contents of the box',
-            '打开包装，检查盒内物品\n提前撕开酒精棉和创口贴': 'Open the packaging，check the contents of the box',
-            '清洗双手或佩戴一次性医用手套': 'Before operation, please wash hands or wear gloves',
-            '轻掰金属片，触发加热': 'Activate warming pack',
-            '热敷5分钟至皮肤微微泛红,如热敷过程中感觉太烫，可暂停几秒再继续热敷': 'Warm arm for 5 minutes, if the arm becomes uncomfortable, stop warming for a while and continue',
-            '酒精棉片轻轻擦拭清洁,等待酒精挥发完全': 'Clean with alcohol wipe and allow to dry',
-            '撕开顶部和底部胶贴': 'Peel of the paper liners on the top and bottom, stick the device to upper arm',
-            '将其紧贴上臂，管槽位置朝下（紧贴后不会掉落，无需一直手扶）': 'Stick to upper arm,please ensure the slot is positioned at the bottom',
-            '将其紧贴上臂，管槽位置朝下': 'Stick to upper arm,please ensure the slot is positioned at the bottom',
-            '采血管垂直插入管槽，针刺破胶塞即表示采血开始，计时90秒': 'Insert the blood collection container vertically into the slot.The needle puncturing the rubber stopper signals the start of blood collection.;\nSet the timer for 90 seconds',
-            '采血管垂直插入管槽，针刺破胶塞声即表示采血开始，计时90S': 'Insert the blood collection container vertically into the slot.The needle puncturing the rubber stopper signals the start of blood collection.;\nSet the timer for 90 seconds',
-            '水平抬起手臂观察血液采集量，\n90秒或血量到达刻度线后停止采血': 'Remove device if blood fill to the line before time is up',
-            '取下采血器': 'Remove device',
-            '垂直向下取出采血管': 'Hold the container upright and remove container',
-            '胶塞朝下摇晃采血管，使血液与添加剂充分混合': 'Immediately shake the blood sample with the tube rubber stopper facing downward',
-            '先胶塞朝下摇晃采血管，使血液与添加剂充分混合': 'Immediately shake the blood sample with the tube rubber stopper facing downward',
-            '纱布擦拭采血位置，贴上创口贴': 'Clean with gauze.Apply a bandage',
-            '将所有耗材妥善装入医疗包装废物袋': 'Follow local guidelines for discarding all materials',
-            '将血样放入运输袋，转运或寄回至检测实验室': 'Pack sample and ship to the lab',
-        };
-        // 支持多行和部分换行的模糊匹配
-        // 英文注意事项内容
-        const warningListZh = [
-            '12 周岁以下人群、凝血机制障碍人群或皮肤易过敏人群请勿使用本产品。',
-            '禁止海拔 2000 米以上地区使用此产品，否则可能导致危险。',
-            '皮肤松弛，缺血症，血液外循环障碍人群请谨慎使用该产品。',
-            '使用本产品前，应对皮肤表面进行清洁，并确保皮肤表面干燥，否则血液样品可能会受到影响。',
-            '若采血位置持续出血，应使用适当方法进行止血，并尽快就医。',
-        ];
-        const warningListEn = [
-            'Do not use this product for people under 12 years old, people with coagulation disorders, or people with skin allergies.',
-            'Do not use this product at altitudes above 2000 meters, as it may cause danger.',
-            'Use with caution for people with loose skin, ischemia, or blood circulation disorders.',
-            'Clean and dry the skin surface before use, otherwise the blood sample may be affected.',
-            'If bleeding continues at the collection site, use appropriate methods to stop the bleeding and seek medical attention promptly.',
-        ];
-        // 步骤标题英文
-        const stepTitlesZh = [
-            '步骤1：采集准备',
-            '步骤2:热敷',
-            '步骤3：消毒',
-            '步骤4：开始采血',
-            '步骤5：停止采血',
-            '步骤6：取出采血管',
-            '步骤7：后处理',
-        ];
-        const stepTitlesEn = [
-            'Step 1: Preparation',
-            'Step 2: Warm Up',
-            'Step 3: Disinfection',
-            'Step 4: Blood Collection',
-            'Step 5: Stop Collection',
-            'Step 6: Remove Tube',
-            'Step 7: Post-processing',
-        ];
-        // 计时器按钮和提示的中英文
-        const timerBtnText = {
-            zh: { start: '开始', pause: '暂停', reset: '重置', finished: '时间到！' },
-            en: { start: 'Start', pause: 'Pause', reset: 'Reset', finished: 'Time\'s up!' }
-        };
-        
-        function updateTimerButtonsLang() {
-            // timer5
-            document.getElementById('timer5-start').textContent = isEnglish ? timerBtnText.en.start : timerBtnText.zh.start;
-            document.getElementById('timer5-pause').textContent = isEnglish ? timerBtnText.en.pause : timerBtnText.zh.pause;
-            document.getElementById('timer5-reset').textContent = isEnglish ? timerBtnText.en.reset : timerBtnText.zh.reset;
-            document.getElementById('timer5-finished').textContent = isEnglish ? timerBtnText.en.finished : timerBtnText.zh.finished;
-            // timer1
-            document.getElementById('timer1-start').textContent = isEnglish ? timerBtnText.en.start : timerBtnText.zh.start;
-            document.getElementById('timer1-pause').textContent = isEnglish ? timerBtnText.en.pause : timerBtnText.zh.pause;
-            document.getElementById('timer1-reset').textContent = isEnglish ? timerBtnText.en.reset : timerBtnText.zh.reset;
-            document.getElementById('timer1-finished').textContent = isEnglish ? timerBtnText.en.finished : timerBtnText.zh.finished;
-        }
-        // 修改toggleLang，切换语言时同步切换计时器按钮
-        function toggleLang() {
-            isEnglish = !isEnglish;
-            const btn = document.getElementById('toggle-lang-btn');
-            btn.textContent = isEnglish ? '中文版' : 'English Version';
-            // desc内容切换
-            document.querySelectorAll('.desc').forEach(desc => {
-                let zh = desc.textContent.trim().replace(/\s+/g, '');
-                let found = false;
-                if (isEnglish) {
-                    for (const [k, v] of Object.entries(langMap)) {
-                        if (zh === k.replace(/\s+/g, '')) {
-                            desc.textContent = v;
-                            found = true;
-                            break;
-                        }
-                    }
-                } else {
-                    for (const [k, v] of Object.entries(langMap)) {
-                        if (desc.textContent.trim() === v) {
-                            desc.textContent = k;
-                            found = true;
-                            break;
-                        }
-                    }
-                }
-            });
-            // 图片切换逻辑
-            document.querySelectorAll('.step-gif').forEach(img => {
-                const src = img.getAttribute('src');
-                // 只处理src/开头的图片
-                if (isEnglish) {
-                    if (src.startsWith('src/') && !src.startsWith('src/ver_english/')) {
-                        const filename = src.substring(4); // 去掉'src/'
-                        img.setAttribute('src', 'src/ver_english/' + filename);
-                    }
-                } else {
-                    if (src.startsWith('src/ver_english/')) {
-                        const filename = src.substring('src/ver_english/'.length);
-                        img.setAttribute('src', 'src/' + filename);
-                    }
-                }
-            });
-            // 注意事项切换
-            const warningTitle = document.querySelector('.warning-title');
-            if (warningTitle) {
-                warningTitle.textContent = isEnglish ? 'Precautions' : '阅读注意事项';
-            }
-            const warningList = document.querySelector('.warning-list');
-            if (warningList) {
-                warningList.innerHTML = '';
-                (isEnglish ? warningListEn : warningListZh).forEach(item => {
-                    const li = document.createElement('li');
-                    li.textContent = item;
-                    warningList.appendChild(li);
-                });
-            }
-            // “已阅读”按钮切换
-            const confirmBtn = document.querySelector('.confirm-btn');
-            if (confirmBtn) {
-                confirmBtn.textContent = isEnglish ? 'Read and understood' : '已阅读';
-            }
-            // 步骤标题切换
-            document.querySelectorAll('.step-title').forEach((el, idx) => {
-                if (isEnglish) {
-                    if (stepTitlesZh[idx] && el.textContent.trim().replace(/\s+/g, '') === stepTitlesZh[idx].replace(/\s+/g, '')) {
-                        el.textContent = stepTitlesEn[idx];
-                    }
-                } else {
-                    if (stepTitlesEn[idx] && el.textContent.trim().replace(/\s+/g, '') === stepTitlesEn[idx].replace(/\s+/g, '')) {
-                        el.textContent = stepTitlesZh[idx];
-                    }
-                }
-            });
-            // 计时器标题切换
-            const timerTitlesZh = ['热敷5分钟计时器', '采血90秒计时'];
-            const timerTitlesEn = ['5-Minute Warming Timer', '90-Second Blood Collection Timer'];
-            document.querySelectorAll('.timer-title').forEach((el, idx) => {
-                if (isEnglish) {
-                    if (timerTitlesZh[idx] && el.textContent.trim().replace(/\s+/g, '') === timerTitlesZh[idx].replace(/\s+/g, '')) {
-                        el.textContent = timerTitlesEn[idx];
-                    }
-                } else {
-                    if (timerTitlesEn[idx] && el.textContent.trim().replace(/\s+/g, '') === timerTitlesEn[idx].replace(/\s+/g, '')) {
-                        el.textContent = timerTitlesZh[idx];
-                    }
-                }
-            });
-            // 网页标题和主标题切换
-            document.title = isEnglish ? 'Instructions for Capillary Blood Collection Device' : '末梢采血器操作说明';
-            const h1 = document.querySelector('h1');
-            if (h1) {
-                h1.textContent = isEnglish ? 'Instructions for Capillary Blood Collection Device' : '末梢采血器操作说明';
-            }
-            // 计时器按钮和提示切换
-            updateTimerButtonsLang();
-        }
-        // 页面加载后初始化计时器按钮文字
-        document.addEventListener('DOMContentLoaded', function() {
-            // 只有当按钮都存在时才更新文字，避免报错
-            if (
-                document.getElementById('timer5-start') &&
-                document.getElementById('timer5-pause') &&
-                document.getElementById('timer5-reset') &&
-                document.getElementById('timer5-finished') &&
-                document.getElementById('timer1-start') &&
-                document.getElementById('timer1-pause') &&
-                document.getElementById('timer1-reset') &&
-                document.getElementById('timer1-finished')
-            ) {
-                updateTimerButtonsLang();
-            }
-        });
-
-        // 移除视频/GIF切换相关JS
-
-        // 页面加载后不再调用updateAllMediaToCDN，所有src直接本地
-
-        // 平滑滚动到当前步骤
-        document.querySelectorAll('.step-section').forEach(section => {
-            section.addEventListener('click', () => {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
     </script>
 </body>
 </html>
